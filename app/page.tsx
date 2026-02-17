@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-portfolio-light-bg dark:bg-portfolio-bg">
       {/* Theme Toggle - Fixed Position */}
-      <div className="fixed top-6 right-6 z-50">
+      <div className="fixed top-4 sm:top-6 right-4 sm:right-6 z-50">
         <ThemeToggle />
       </div>
 

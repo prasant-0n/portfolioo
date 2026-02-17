@@ -51,30 +51,32 @@ export default function GitHubContributions() {
     <Section id="github">
       <Container>
         <SectionHeader
-          title="GitHub Activity"
-          subtitle="My open source contributions"
+          title="Contributions"
+          subtitle="My active involvement in open source development"
         />
-        <div ref={containerRef} className="flex justify-center mb-6 overflow-hidden">
-          <GitHubCalendar
-            username={PERSONAL_INFO.githubUsername}
-            theme={{
-              light: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'],
-              dark: ['#0A0A0A', '#0e4429', '#006d32', '#26a641', '#39d353'],
-            }}
-            colorScheme={resolvedTheme === 'dark' ? 'dark' : 'light'}
-            blockSize={12}
-            blockMargin={4}
-          />
+        <div ref={containerRef} className="flex justify-center mb-8 overflow-x-auto pb-4 -mx-4 sm:mx-0 px-4 sm:px-0">
+          <div className="bg-portfolio-light-surface/30 dark:bg-portfolio-surface/30 border border-portfolio-light-border dark:border-portfolio-border rounded-xl p-6 backdrop-blur-sm">
+            <GitHubCalendar
+              username={PERSONAL_INFO.githubUsername}
+              theme={{
+                light: ['#e0e7ff', '#a5d8ff', '#60a5fa', '#3b82f6', '#1d4ed8'],
+                dark: ['#1a1f2e', '#1d4ed8', '#3b82f6', '#60a5fa', '#a5d8ff'],
+              }}
+              colorScheme={resolvedTheme === 'dark' ? 'dark' : 'light'}
+              blockSize={14}
+              blockMargin={4}
+            />
+          </div>
         </div>
-        <div className="text-center">
+        <div className="text-center pt-4">
           <a
             href={`https://github.com/${PERSONAL_INFO.githubUsername}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-portfolio-light-accent dark:text-portfolio-silver hover:text-portfolio-light-text dark:text-portfolio-text transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-portfolio-accent/10 dark:bg-portfolio-accent/5 border border-portfolio-accent/30 dark:border-portfolio-accent/30 text-portfolio-accent dark:text-portfolio-accentLight hover:bg-portfolio-accent/20 dark:hover:bg-portfolio-accent/10 rounded-lg font-medium transition-all duration-300"
           >
             <span>View on GitHub</span>
-            <ExternalLink size={16} />
+            <ExternalLink size={18} className="group-hover:translate-x-1 transition-transform" />
           </a>
         </div>
       </Container>

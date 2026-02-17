@@ -25,14 +25,14 @@ export default function MyLearning() {
       <Section id="learning">
         <Container>
           <SectionHeader
-            title="My Learning Resources"
-            subtitle="Educational content I've created"
+            title="Learning Resources"
+            subtitle="Educational content I've created and shared"
           />
-          <div className="space-y-2">
+          <div className="space-y-3">
             {[1, 2, 3].map((i) => (
               <div
                 key={i}
-                className="h-16 bg-portfolio-light-surface dark:bg-portfolio-surface/20 rounded-lg animate-pulse"
+                className="h-20 bg-portfolio-light-surface/50 dark:bg-portfolio-surface/30 rounded-xl border border-portfolio-light-border dark:border-portfolio-border animate-pulse"
               />
             ))}
           </div>
@@ -45,10 +45,10 @@ export default function MyLearning() {
     <Section id="learning">
       <Container>
         <SectionHeader
-          title="My Learning Resources"
-          subtitle="Educational content I've created"
+          title="Learning Resources"
+          subtitle="Educational content I've created and shared"
         />
-        <div className="divide-y divide-portfolio-border">
+        <div className="space-y-3">
           {repos.map((repo, index) => (
             <LearningRepoRow key={repo.name} repo={repo} index={index} />
           ))}

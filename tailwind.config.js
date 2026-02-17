@@ -14,27 +14,29 @@ module.exports = {
       },
       colors: {
         'portfolio': {
-          // Dark mode colors (existing)
-          bg: '#0A0A0A',
-          surface: '#1A1A1A',
-          border: '#2A2A2A',
-          silver: '#C0C0C0',
-          text: '#E8E8E8',
-          muted: '#6B7280',
+          // Dark mode colors - Modern deep navy/black
+          bg: '#0F1419',
+          surface: '#1a1f2e',
+          border: '#2a3142',
+          silver: '#e5e7eb',
+          text: '#f3f4f6',
+          muted: '#9ca3af',
+          accent: '#3b82f6',
+          accentLight: '#60a5fa',
 
-          // Light mode colors (new)
+          // Light mode colors - Clean white/light gray
           light: {
-            bg: '#FFFFFF',
-            surface: '#F9FAFB',
-            border: '#E5E7EB',
-            accent: '#1F2937',
+            bg: '#ffffff',
+            surface: '#f9fafb',
+            border: '#e5e7eb',
+            accent: '#111827',
             text: '#111827',
-            muted: '#6B7280',
+            muted: '#6b7280',
           }
         }
       },
       maxWidth: {
-        'portfolio': '800px'
+        'portfolio': '1000px'
       },
       fontWeight: {
         light: '300',
@@ -48,6 +50,10 @@ module.exports = {
       transitionDuration: {
         'theme': '300ms',
       },
+      spacing: {
+        'section': '5rem',
+        'section-sm': '3rem',
+      }
     },
   },
   plugins: [],
