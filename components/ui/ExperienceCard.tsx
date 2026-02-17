@@ -36,7 +36,7 @@ export default function ExperienceCard({ experience, isExpanded, onToggle }: Exp
       tabIndex={0}
       aria-expanded={isExpanded}
       aria-label={`${experience.company} - ${experience.role}. ${isExpanded ? 'Collapse' : 'Expand'} details`}
-      className="rounded-lg cursor-pointer bg-transparent hover:bg-portfolio-light-surface/50 dark:hover:bg-portfolio-surface/20 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-portfolio-light-accent dark:focus:ring-portfolio-silver focus:ring-offset-2 focus:ring-offset-portfolio-light-bg dark:focus:ring-offset-portfolio-bg"
+      className="rounded-xl cursor-pointer bg-portfolio-light-surface/30 dark:bg-portfolio-surface/30 border border-portfolio-light-border dark:border-portfolio-border/50 hover:border-portfolio-accent/50 dark:hover:border-portfolio-accent/50 hover:bg-portfolio-light-surface/50 dark:hover:bg-portfolio-surface/50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-portfolio-accent dark:focus:ring-portfolio-accentLight focus:ring-offset-2 focus:ring-offset-portfolio-light-bg dark:focus:ring-offset-portfolio-bg"
     >
       {/* Collapsed State Content */}
       <div className="p-3 sm:p-4">
@@ -126,16 +126,16 @@ export default function ExperienceCard({ experience, isExpanded, onToggle }: Exp
               {/* Achievements */}
               {!!experience.achievements?.length && (
                 <div className="mb-6">
-                  <h4 className="text-sm font-medium text-portfolio-light-accent dark:text-portfolio-silver mb-3">
+                  <h4 className="text-sm font-semibold text-portfolio-accent dark:text-portfolio-accentLight mb-3 uppercase tracking-wide">
                     Key Achievements
                   </h4>
-                  <ul className="space-y-2">
+                  <ul className="space-y-2.5">
                     {experience.achievements?.map((achievement, index) => (
                       <li
                         key={index}
-                        className="text-sm text-portfolio-muted flex items-start gap-2"
+                        className="text-sm text-portfolio-light-text dark:text-portfolio-text flex items-start gap-3"
                       >
-                        <span className="text-portfolio-light-accent dark:text-portfolio-silver mt-0.5">→</span>
+                        <span className="text-portfolio-accent dark:text-portfolio-accentLight font-bold mt-0.5 flex-shrink-0">▸</span>
                         <span className="flex-1">{achievement}</span>
                       </li>
                     ))}
@@ -146,14 +146,14 @@ export default function ExperienceCard({ experience, isExpanded, onToggle }: Exp
               {/* Technologies */}
               {!!experience.technologies?.length && (
                 <div>
-                  <h4 className="text-sm font-medium text-portfolio-light-accent dark:text-portfolio-silver mb-3">
+                  <h4 className="text-sm font-semibold text-portfolio-accent dark:text-portfolio-accentLight mb-3 uppercase tracking-wide">
                     Technologies
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {experience.technologies?.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1.5 bg-portfolio-light-surface dark:bg-portfolio-surface border border-portfolio-light-border dark:border-portfolio-border rounded-full text-xs text-portfolio-light-text dark:text-portfolio-text font-mono"
+                        className="px-3 py-1.5 bg-portfolio-light-bg dark:bg-portfolio-bg border border-portfolio-light-border dark:border-portfolio-border hover:border-portfolio-accent/50 dark:hover:border-portfolio-accent/50 rounded-full text-xs text-portfolio-light-accent dark:text-portfolio-accentLight font-mono font-medium transition-colors"
                       >
                         {tech}
                       </span>

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Calendar } from 'lucide-react';
+import { Calendar, ArrowRight } from 'lucide-react';
 import Container from './Container';
 import SocialLinks from './SocialLinks';
 import { PERSONAL_INFO } from '@/lib/constants';
@@ -10,46 +10,78 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-portfolio-light-border dark:border-portfolio-border py-12">
+    <footer className="relative border-t border-portfolio-light-border dark:border-portfolio-border bg-portfolio-light-bg dark:bg-portfolio-bg/50 py-16 sm:py-20">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-0 right-1/4 w-80 h-80 bg-portfolio-accent/5 dark:bg-portfolio-accent/10 rounded-full blur-3xl" />
+      </div>
+
       <Container>
-        <div className="space-y-8">
-          {/* Schedule Call Button */}
-          <div className="flex justify-center">
+        <div className="relative space-y-12 sm:space-y-16">
+          {/* Schedule Call Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col items-center gap-6"
+          >
+            <div className="text-center space-y-4">
+              <h2 className="text-3xl sm:text-4xl font-semibold text-portfolio-light-text dark:text-portfolio-text">
+                Let&apos;s Work Together
+              </h2>
+              <p className="text-base text-portfolio-muted max-w-md">
+                Have a project in mind? Schedule a call to discuss your ideas.
+              </p>
+            </div>
+
             <motion.a
               href={PERSONAL_INFO.calComLink}
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="group inline-flex items-center gap-2 px-6 py-3 bg-portfolio-light-surface dark:bg-portfolio-surface border border-portfolio-light-border dark:border-portfolio-border rounded-lg text-portfolio-light-text dark:text-portfolio-text hover:border-portfolio-light-accent dark:hover:border-portfolio-silver hover:bg-portfolio-light-surface/50 dark:hover:bg-portfolio-surface/50 transition-all duration-200"
+              className="group inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-portfolio-accent hover:bg-portfolio-accentLight text-white rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl"
             >
-              <Calendar
-                size={18}
-                className="text-portfolio-light-accent dark:text-portfolio-silver group-hover:text-portfolio-light-text dark:group-hover:text-portfolio-text transition-colors"
-              />
-              <span className="font-medium">Schedule a Call</span>
-              <motion.div
-                className="w-0 group-hover:w-2 h-2 bg-portfolio-light-accent dark:bg-portfolio-silver rounded-full transition-all duration-200"
-                initial={{ width: 0 }}
-                whileHover={{ width: 8 }}
-              />
+              <Calendar size={20} />
+              <span>Schedule a Call</span>
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </motion.a>
-          </div>
+          </motion.div>
 
-          <div className="text-center">
-            <h3 className="text-xl font-medium text-portfolio-light-text dark:text-portfolio-text mb-6">
-              Let&apos;s Connect
-            </h3>
-            <SocialLinks />
-          </div>
+          {/* Divider */}
+          <div className="h-px bg-gradient-to-r from-transparent via-portfolio-light-border dark:via-portfolio-border to-transparent" />
 
-          <div className="text-center space-y-2">
-            <p className="text-sm text-portfolio-muted">
-              © {currentYear} {PERSONAL_INFO.name}
-            </p>
-            <p className="text-xs text-portfolio-muted">
-              Built by Akshad
-            </p>
+          {/* Social and Info Section */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center sm:text-left"
+            >
+              <h3 className="text-lg font-semibold text-portfolio-light-text dark:text-portfolio-text mb-4">
+                Connect With Me
+              </h3>
+              <div className="flex justify-center sm:justify-start gap-4">
+                <SocialLinks />
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-center sm:text-right space-y-2"
+            >
+              <p className="text-sm text-portfolio-muted">
+                © {currentYear} {PERSONAL_INFO.name}
+              </p>
+              <p className="text-xs text-portfolio-muted/70">
+                Built with care and modern web technologies
+              </p>
+            </motion.div>
           </div>
         </div>
       </Container>

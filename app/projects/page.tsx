@@ -59,7 +59,7 @@ export default function ProjectsPage() {
   );
 
   return (
-    <main className="min-h-screen bg-portfolio-light-bg dark:bg-portfolio-bg py-16">
+    <main className="min-h-screen bg-portfolio-light-bg dark:bg-portfolio-bg py-12 sm:py-16 md:py-20">
       <ErrorBoundary
         fallback={
           <Container>
@@ -76,54 +76,64 @@ export default function ProjectsPage() {
           <FilterSync />
         </Suspense>
         <Container>
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 text-portfolio-silver hover:text-portfolio-light-text dark:text-portfolio-text transition-colors mb-12"
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mb-12"
         >
-          <ArrowLeft size={20} />
-          <span>Back to Home</span>
-        </Link>
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-portfolio-accent dark:text-portfolio-accentLight hover:text-portfolio-light-text dark:hover:text-portfolio-text transition-all duration-300 font-medium"
+          >
+            <ArrowLeft size={20} />
+            <span>Back to Home</span>
+          </Link>
+        </motion.div>
 
-        <h1 className="text-2xl md:text-3xl font-medium text-portfolio-light-text dark:text-portfolio-text mb-4">
-          All Projects
-        </h1>
-        <div className="w-16 h-0.5 bg-portfolio-light-accent dark:bg-portfolio-silver mb-8" />
+        <div className="mb-12">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-portfolio-light-text dark:text-portfolio-text mb-6">
+            All Projects
+          </h1>
+          <div className="w-16 h-1 bg-gradient-to-r from-portfolio-accent to-portfolio-accentLight rounded-full" />
+        </div>
 
         {/* Skills Cloud */}
         {!isLoading && !error && technologiesWithCounts.length > 0 && (
-          <div className="mb-8">
+          <div className="mb-12">
             <SkillsCloud technologies={technologiesWithCounts} />
           </div>
         )}
 
         {/* Filter Bar */}
-        <FilterBar />
+        <div className="mb-12">
+          <FilterBar />
+        </div>
 
         {/* Results Count */}
         {!isLoading && !error && projects.length > 0 && (
-          <div className="mb-4 text-sm text-portfolio-muted">
-            Showing {sortedProjects.length} of {projects.length} projects
+          <div className="mb-6 text-sm font-medium text-portfolio-muted">
+            Showing <span className="text-portfolio-accent dark:text-portfolio-accentLight font-semibold">{sortedProjects.length}</span> of <span className="text-portfolio-accent dark:text-portfolio-accentLight font-semibold">{projects.length}</span> projects
           </div>
         )}
 
         {isLoading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {[1, 2, 3, 4].map((i) => (
               <div
                 key={i}
-                className="h-96 bg-portfolio-surface border border-portfolio-border rounded-lg animate-pulse"
+                className="h-96 bg-portfolio-light-surface/50 dark:bg-portfolio-surface/50 border border-portfolio-light-border dark:border-portfolio-border rounded-2xl animate-pulse"
               />
             ))}
           </div>
         ) : error ? (
-          <div className="text-center py-12">
-            <p className="text-portfolio-muted">
+          <div className="text-center py-16">
+            <p className="text-lg text-portfolio-muted">
               Failed to load projects. Please try again later.
             </p>
           </div>
         ) : sortedProjects.length > 0 ? (
           <AnimatePresence mode="popLayout">
-            <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
               {sortedProjects.map((project) => (
                 <motion.div
                   key={project.id}
@@ -142,9 +152,9 @@ export default function ProjectsPage() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-center py-12"
+            className="text-center py-16"
           >
-            <p className="text-portfolio-muted text-lg mb-2">
+            <p className="text-lg text-portfolio-muted mb-2">
               No projects match your filters
             </p>
             <p className="text-sm text-portfolio-muted">
@@ -152,8 +162,8 @@ export default function ProjectsPage() {
             </p>
           </motion.div>
         ) : (
-          <div className="text-center py-12">
-            <p className="text-portfolio-muted">No projects found. Please check back later.</p>
+          <div className="text-center py-16">
+            <p className="text-lg text-portfolio-muted">No projects found. Please check back later.</p>
           </div>
         )}
         </Container>

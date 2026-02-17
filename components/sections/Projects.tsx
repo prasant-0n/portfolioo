@@ -36,37 +36,37 @@ export default function Projects() {
         />
 
         {isLoading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-12">
             {[1, 2, 3, 4].map((i) => (
               <div
                 key={i}
-                className="h-96 bg-portfolio-light-surface dark:bg-portfolio-surface border border-portfolio-light-border dark:border-portfolio-border rounded-lg animate-pulse"
+                className="h-96 bg-portfolio-light-surface/50 dark:bg-portfolio-surface/50 border border-portfolio-light-border dark:border-portfolio-border rounded-2xl animate-pulse"
               />
             ))}
           </div>
         ) : featuredProjects.length > 0 ? (
           <>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-12">
               {featuredProjects.map((project) => (
                 <ProjectCard key={project.id} project={project} />
               ))}
             </div>
 
             {projects.length > 0 && (
-              <div className="text-center">
+              <div className="text-center pt-4">
                 <Link
                   href="/projects"
-                  className="inline-flex items-center gap-2 text-portfolio-light-accent dark:text-portfolio-silver hover:text-portfolio-light-text dark:text-portfolio-text transition-colors"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-portfolio-accent/10 dark:bg-portfolio-accent/5 border border-portfolio-accent/30 dark:border-portfolio-accent/30 text-portfolio-accent dark:text-portfolio-accentLight hover:bg-portfolio-accent/20 dark:hover:bg-portfolio-accent/10 rounded-lg font-medium transition-all duration-300"
                 >
                   <span>View All Projects</span>
-                  <ArrowRight size={20} />
+                  <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
             )}
           </>
         ) : (
-          <div className="text-center py-12">
-            <p className="text-portfolio-muted">
+          <div className="text-center py-16">
+            <p className="text-portfolio-muted text-lg">
               No projects available at the moment.
             </p>
           </div>

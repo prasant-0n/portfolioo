@@ -28,8 +28,8 @@ export function ThemeToggle() {
   return (
     <motion.button
       onClick={handleToggle}
-      className="relative w-10 h-10 rounded-lg border border-portfolio-light-border dark:border-portfolio-border bg-portfolio-light-surface dark:bg-portfolio-surface hover:border-portfolio-light-accent dark:hover:border-portfolio-silver transition-colors"
-      whileHover={{ scale: 1.05 }}
+      className="relative w-11 h-11 rounded-xl border border-portfolio-light-border dark:border-portfolio-border bg-portfolio-light-surface/50 dark:bg-portfolio-surface/50 backdrop-blur-sm hover:border-portfolio-accent dark:hover:border-portfolio-accentLight hover:bg-portfolio-light-surface dark:hover:bg-portfolio-surface transition-all duration-300 shadow-lg hover:shadow-xl"
+      whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
       aria-label={`Switch to ${nextTheme[theme]} theme`}
       title={`Current: ${theme} theme`}
@@ -43,7 +43,7 @@ export function ThemeToggle() {
           transition={{ duration: 0.2 }}
           className="absolute inset-0 flex items-center justify-center"
         >
-          <Icon size={20} className="text-portfolio-light-text dark:text-portfolio-text" />
+          <Icon size={22} className="text-portfolio-accent dark:text-portfolio-accentLight" />
         </motion.div>
       </AnimatePresence>
     </motion.button>

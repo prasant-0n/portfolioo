@@ -26,24 +26,24 @@ export default function Experience() {
       <Container>
         <SectionHeader
           title="Experience"
-          subtitle="My professional journey"
+          subtitle="My professional journey and roles"
         />
 
         <div className="relative">
           <div
-            className="absolute left-3 sm:left-6 top-0 bottom-0 w-0.5 bg-portfolio-border"
+            className="absolute left-4 sm:left-7 top-0 bottom-0 w-0.5 bg-gradient-to-b from-portfolio-accent via-portfolio-border to-transparent dark:from-portfolio-accent dark:via-portfolio-border"
             aria-hidden="true"
           />
 
           <div className="space-y-6">
-            {sortedExperiences.map((exp) => (
+            {sortedExperiences.map((exp, index) => (
               <div key={exp.id} className="relative">
                 <div
-                  className="absolute left-3 sm:left-6 top-6 w-3 h-3 rounded-full bg-portfolio-silver border-2 border-portfolio-bg transform -translate-x-1/2 z-10"
+                  className="absolute left-4 sm:left-7 top-6 w-3 h-3 rounded-full bg-portfolio-accent border-4 border-portfolio-light-bg dark:border-portfolio-bg transform -translate-x-1/2 z-10 shadow-lg shadow-portfolio-accent/50"
                   aria-hidden="true"
                 />
 
-                <div className="pl-8 sm:pl-16">
+                <div className="pl-10 sm:pl-20">
                   {exp.positions ? (
                     <CompanyExperienceGroup
                       experience={exp}
